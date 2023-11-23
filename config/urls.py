@@ -22,7 +22,10 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 docs_urls = [
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('schema/swagger/', SpectacularSwaggerView.as_view(), name='swagger'),
-    path('schema/', SpectacularRedocView.as_view(), name='redoc')
+    path('schema/', SpectacularRedocView.as_view(), name='redoc'),
+    path('api/', include(([
+        path('users/', include('apps.users.urls')),
+    ])))
 ]
 
 debugger = [
