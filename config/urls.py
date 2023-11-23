@@ -25,6 +25,7 @@ docs_urls = [
     path('schema/', SpectacularRedocView.as_view(), name='redoc'),
     path('api/', include(([
         path('users/', include('apps.users.urls')),
+        path('auth/', include('apps.jwt_auth.urls')),
     ])))
 ]
 
